@@ -1,5 +1,3 @@
-setwd("C:\\Users\\bauble\\Documents\\ExData_Plotting1")
-
 epc <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", stringsAsFactors = FALSE)
 
 x <- paste(epc$Date, epc$Time)

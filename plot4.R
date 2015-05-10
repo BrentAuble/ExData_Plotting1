@@ -14,10 +14,19 @@ epc2$Sub_metering_1 <- as.numeric(epc2$Sub_metering_1)
 epc2$Sub_metering_2 <- as.numeric(epc2$Sub_metering_2)
 epc2$Sub_metering_3 <- as.numeric(epc2$Sub_metering_3)
 
+par(mfrow = c(2, 2))
+
+plot(epc2$DateTime, epc2$Global_active_power, type="l", ylab = "Global Active Power (kw)", xlab="")
+
+plot(epc2$DateTime, epc2$Voltage, type="l", ylab = "Voltage", xlab="")
+
 plot(epc2$DateTime, epc2$Sub_metering_1, type="l", ylab = "Energy sub metering", xlab="")
 lines(epc2$DateTime, epc2$Sub_metering_2, col = "red")
 lines(epc2$DateTime, epc2$Sub_metering_3, col = "blue")
-legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, cex=0.75)
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lwd = 1, cex=0.5)
+
+plot(epc2$DateTime, epc2$Global_reactive_power, type="l", ylab = "Global Reactive Power (kw)", xlab="")
+
 
 dev.copy(png, file="plot4.png", width=480, height=480)
 dev.off()
